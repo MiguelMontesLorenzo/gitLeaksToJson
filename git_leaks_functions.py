@@ -2,7 +2,6 @@ from git import Repo
 
 import os
 import copy
-
 import re
 import signal
 import sys
@@ -22,7 +21,6 @@ signal.signal(signal.SIGINT, handler_signal)
 REPO_DIR = './skale/skale-manager'
 
 
-# time.sleep(15)
 
 def extract(path):
 	#Repo permite especificar la url de un repositorio que luego se guarda en la variable especificada
@@ -108,11 +106,11 @@ def transformToDictionary(commits):
 
 	return matches
 
+
 def load(processedCommits):
 	Register = open('commitRegister.txt', 'a')
 	print('MATCHES FOUND: ')
 	for i,commit in enumerate(processedCommits):
-		print('matched commit {j:.0f}:\n'.format(j=i) , commit.message)
 		Register.write(str(commit.message))
 		Register.write('\n\n\n')
 	Register.close()
@@ -127,9 +125,10 @@ def load(processedCommits):
 
 
 
-#TO CHECK ALL OBJECT ATTRIBUTES (i)
-# for j in (dir(i)):
-#     print(j, end = ':  ')
-#     exec(f'print(i.{j})')
+#TO CHECK ALL OBJECT ATTRIBUTES (object)
+#
+# for i in (dir(object)):
+#     print(i, end = ':  ')
+#     exec(f'print(object.{i})')
 #     print()
 # input()
